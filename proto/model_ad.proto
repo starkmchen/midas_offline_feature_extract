@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "proto/model_count_feature.proto";
+
+message Creative {
+    string creative_id = 1; // adserver传到model server
+    string cp_id = 2; // adserver传到model server
+};
+
+message AdInfo {
+    int64 ad_id = 1; // adserver传到model server
+    string app_id = 2; // adserver传到model server
+    string category = 3;
+    repeated Creative creatives = 4;
+    int64 attr_platform  = 5; // adserver传到model server
+    int64 is_auto_download = 6; // adserver传到model server
+    string creative_id = 7;
+    string cp_id = 8;
+};
+
+message AdCount {
+    BusinessCountFeature ad_id = 1;
+    BusinessCountFeature ad_package_name = 2;
+    BusinessCountFeature ad_package_category = 3;
+    BusinessCountFeature pos_id_ad_id = 4;
+    BusinessCountFeature pos_id_ad_package_name = 5;
+    BusinessCountFeature c_id = 6;
+    BusinessCountFeature pos_id_c_id = 7;
+    BusinessCountFeature pos_id_ad_package_category = 8;
+};
+
+
+message AdData {
+    AdInfo ad_info = 1;
+    AdCount ad_counter = 2;
+};

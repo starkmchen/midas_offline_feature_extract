@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "proto/model_count_feature.proto";
+
+message UserBehavior {
+    repeated string click_ad_app_list = 1;  // 最近30天点击广告的applist
+    repeated string install_ad_app_list = 2; // 最近30天安装广告的applist
+    repeated string install_app_list = 3; // 最近14天安装的applist
+    repeated string use_app_list = 4; // 最近7天使用的app
+};
+
+message UserCount {
+    BusinessCountFeature user_id = 1;
+};
+
+message UserBase {
+    string country = 1;
+    string province = 2;
+    string city = 3;
+    string gender = 4;
+    string age = 5;
+}
+
+message UserProfile {
+    string user_id = 1; // adserver传到model server, beyla_id
+    UserBase user_base = 2;
+    UserBehavior user_behavior = 3;
+    UserCount user_counter = 4;
+};

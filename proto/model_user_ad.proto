@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "proto/model_count_feature.proto";
+
+message UserAdCount {
+    BusinessCountFeature user_id_ad_id = 1;
+    BusinessCountFeature user_id_ad_package_name = 2;
+    BusinessCountFeature user_id_ad_package_category = 3;
+    BusinessCountFeature user_id_pos_id_ad_id = 4;
+    BusinessCountFeature user_id_pos_id_ad_package_name = 5;
+    BusinessCountFeature user_id_c_id = 6;
+    BusinessCountFeature user_id_pos_id_c_id = 7;
+    BusinessCountFeature user_id_pos_id_ad_package_category = 8;
+};
+
+message UserAdFeature {
+    UserAdCount user_ad_count = 1;
+};

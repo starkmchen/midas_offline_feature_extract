@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message Context {
+    string pos_id = 1;
+    string app_name = 2;
+    string network_type = 3;
+    string os_version = 4;
+    string brand = 5;
+    string model = 6;
+    string language = 7; // 手机系统语言
+    string app_version_code = 8;
+    string client_ip = 9;
+    string nation = 10;
+    int64 req_time = 11;
+};

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "proto/model_context.proto";
+import "proto/model_ad.proto";
+import "proto/model_user.proto";
+import "proto/model_user_ad.proto";
+
+
+message Feature {
+    UserProfile user_profile = 1;
+    AdData ad_data = 2;
+    UserAdFeature user_ad_feature = 3;
+    Context context = 4;
+};
+
+message Label {
+    int32 imp = 1;
+    int32 click = 2;
+    int32 install = 3;
+    int32 attr_install = 4;
+};
+
+message Sample {
+    Feature feature = 1;
+    Label label = 2;
+};
+
