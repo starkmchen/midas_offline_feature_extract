@@ -400,7 +400,7 @@ void ModelFeature::extract_user_base(const std::string& prefix, const UserBase& 
 }
 
 void ModelFeature::extract_user_profile(const std::string& prefix, const UserProfile& up) {
-    append(prefix, "_uid", hash(up.user_id()));
+    // append(prefix, "_uid", hash(up.user_id()));
     if (up.has_user_base()) {
         extract_user_base(prefix + "_ub2", up.user_base());
     }
