@@ -29,6 +29,8 @@ mkdir /root/midas_offline_ads_train_data/$day
 
 ls /root/midas_offline_train_data/$day/p* | xargs python extract_feature.py
 
+rm -r /root/midas_offline_train_data/$day
+
 cd /root/midas_offline_ads_train_data/$day
 
 mkdir feature_index
