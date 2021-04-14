@@ -64,7 +64,9 @@ uint64_t timeSinceEpochMillisec() {
 
 std::string ModelFeature::extract_tf_example(const std::string& str) {
 	Sample sample;
-    auto status = google::protobuf::util::JsonStringToMessage(str, &sample);
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  auto status = google::protobuf::util::JsonStringToMessage(str, &sample, options);
     if (status.ok()) {
         auto result = extract_feature(sample.feature());
 		tensorflow_def::Example example;
@@ -126,7 +128,9 @@ std::string ModelFeature::extract_tf_example(const std::string& str) {
 
 std::string ModelFeature::extract_json(const std::string& str) {
     Sample sample;
-    auto status = google::protobuf::util::JsonStringToMessage(str, &sample);
+    google::protobuf::util::JsonParseOptions options;
+    options.ignore_unknown_fields = true;
+    auto status = google::protobuf::util::JsonStringToMessage(str, &sample, options);
     if (status.ok()) {
         auto result = extract_feature(sample.feature());
         std::ostringstream oss;
